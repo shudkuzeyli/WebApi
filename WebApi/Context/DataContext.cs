@@ -10,13 +10,19 @@ namespace WebApi.Context
 
 		}
 		public DbSet<Film> Film { get; set; }
+		public DbSet<Yonetmen> Yonetmen { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			//base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<Film>()
-			.Property(f => f.Id)
-			.HasDefaultValueSql("NEXT VALUE FOR FilmSquence");
+			base.OnModelCreating(modelBuilder);
+
+			//modelBuilder.Entity<Film>()
+			//.Property(f => f.Id)
+			//.HasDefaultValueSql("NEXT VALUE FOR FilmSquence");
+
+			modelBuilder.Entity<Yonetmen>()
+			.Property(y => y.Id)
+			.HasDefaultValueSql("NEWID()");
 		}
 	}
 }
