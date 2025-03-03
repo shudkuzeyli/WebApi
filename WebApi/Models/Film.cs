@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApi.Models
 {
-	public class Film
+	public class Film : BaseClass
 	{
 		/*
 		 Create Squence FilmSquence
 		 Sart with 5000
 		 increment by 5;
 		 */
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public int Id { get; set; }
+		//[Key]
+		//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+		//public int Id { get; set; }
 
 		public string FilmAdi { get; set; }
 
