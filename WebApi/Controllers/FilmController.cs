@@ -131,16 +131,16 @@ namespace WebApi.Controllers
 		//}
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<List<Film>>> GetById(int? id)
+		public async Task<ActionResult<Film>> GetById(int? id)
 		{
 			if (id == null)
 			{
 				return NoContent();
 			}
 
-			var data = await _dataContext.Film.Where(i => i.Id == id).ToListAsync();
+			var data = await _dataContext.Film.Where(i => i.Id == id).FirstOrDefaultAsync();
 
-			if (data.Count == 0)
+			if (data is null)
 			{
 				return NoContent();
 			}
